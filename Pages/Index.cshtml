@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Cat Facts";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hello!</h1>
+    <form method="post" class="mt-4">
+        <button type="submit" class="btn btn-primary btn-lg">
+            Click here
+        </button>
+        </form>
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-info mt-4">
+            @Model.ErrorMessage
+        </div>
+    }
+    <h2 class="display-6"> to get your random cat fact from: <a href="https://catfact.ninja/fact">catfact.ninja</a> and add it to your txt file!</h2>
+    @if (Model.LatestFact != null)
+    {
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Last fact:</h5>
+                <p class="card-text">@Model.LatestFact.Fact</p>
+                <small class="text-muted">Length: @Model.LatestFact.Length</small>
+            </div>
+        </div>
+    }
+</div>
