@@ -9,24 +9,50 @@
     <link rel="stylesheet" href="~/CatFacts.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Cat Facts</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <style>
+        /* Tło z łagodnym nakładaniem, aby ew. zdjęcie nie psuło czytelności tekstu */
+        body {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                        url('/images/mili_bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Karta na środku ekranu */
+        .hero-card {
+            max-width: 650px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Stylowy kafel jako przycisk */
+        .cat-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .cat-tile-primary {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+
+        .cat-tile-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .cat-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            color: #fff;
+        }
+    </style>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -34,7 +60,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container text-center">
             &copy; 2026 - Cat Facts - Danuta Tomaszewska
         </div>
     </footer>
