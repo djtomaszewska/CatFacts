@@ -3,29 +3,47 @@
 @{
     ViewData["Title"] = "Cat Facts";
 }
+<div class="container d-flex flex-column gap-4 justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="card hero-card p-4 p-md-5 mt-4 text-center ">
+        <div class="mb-3 display-4">🐾</div>
+        <h1 class="fw-bold mb-3">Discover Cat Curiosities</h1>
+        <p class="lead text-muted mb-4">
+            Fetch a random feline fact from <a href="https://catfact.ninja/fact" target="_blank" class="text-decoration-none fw-semibold">catfact.ninja</a> and archive it straight to your collection.
+        </p>
+        <div class="row g-3 justify-content-center mt-2">
+            <div class="col-12 col-md-6">
+                <form method="post">
+                    <button type="submit" class="btn cat-tile cat-tile-primary w-100 border-0">
+                        <span class="fs-4 mb-1">🐱✨</span>
+                        <span class="fw-bold">Get Random Fact</span>
+                        <small class="opacity-75">Fetch & save to file</small>
+                    </button>
+                </form>
+            </div>
 
-<div class="text-center">
-    <h1 class="display-4">Hello!</h1>
-    <form method="post" class="mt-4">
-        <button type="submit" class="btn btn-primary btn-lg">
-            Click here
-        </button>
-        </form>
+            <div class="col-12 col-md-6">
+                <a href="/SavedFacts" class="cat-tile cat-tile-secondary h-100">
+                    <span class="fs-4 mb-1">📚</span>
+                    <span class="fw-bold">View Saved Facts</span>
+                    <small class="opacity-75">Browse your txt file</small>
+                </a>
+            </div>
+        </div>
+        </div>
+    <div class="card hero-card p-4 p-md-5 text-center @(Model.LatestFact == null && string.IsNullOrEmpty(Model.ErrorMessage) ? "d-none" : "")">
     @if (!string.IsNullOrEmpty(Model.ErrorMessage))
     {
         <div class="alert alert-info mt-4">
             @Model.ErrorMessage
         </div>
     }
-    <h2 class="display-6"> to get your random cat fact from: <a href="https://catfact.ninja/fact">catfact.ninja</a> and add it to your txt file!</h2>
     @if (Model.LatestFact != null)
     {
-        <div class="card mt-3">
             <div class="card-body">
                 <h5 class="card-title">Last fact:</h5>
                 <p class="card-text">@Model.LatestFact.Fact</p>
                 <small class="text-muted">Length: @Model.LatestFact.Length</small>
             </div>
-        </div>
     }
+</div>
 </div>
