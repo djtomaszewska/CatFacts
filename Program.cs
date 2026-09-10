@@ -1,3 +1,5 @@
+using CatFacts.Services;
+
 namespace CatFacts
 {
     public class Program
@@ -9,6 +11,7 @@ namespace CatFacts
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddHttpClient<Services.ICatFactsService, Services.CatFactsService>();
+            builder.Services.AddSingleton<IFileWriter, FileWriter>();
 
             var app = builder.Build();
 
