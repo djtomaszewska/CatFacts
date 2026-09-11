@@ -20,3 +20,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.back-btn {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1000;
+}
