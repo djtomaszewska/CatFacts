@@ -1,0 +1,22 @@
+﻿@page
+@model CatFacts.Pages.SavedFactsModel
+@{
+    ViewData["Title"] = "Cat Facts";
+
+
+    <a asp-page="/Index" class="btn btn-outline-secondary back-btn">
+        &larr; Main
+    </a>
+    <div class="container d-flex flex-column gap-4 justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="card hero-card p-4 p-md-5 mt-4 text-center ">
+    @foreach(var fact in Model.SavedFacts)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <p class="small card-text">@fact</p>
+            </div>
+        </div>
+            }
+    </div>
+    </div>
+}
